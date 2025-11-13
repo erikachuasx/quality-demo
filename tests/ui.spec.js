@@ -1,11 +1,14 @@
-import { test, expect } from '@playwright/test'; 
+import { test, expect } from '@playwright/test';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-test('button click updates message', async ({ page }) => { 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-  await page.goto('file://' + __dirname + '/../index.html'); 
+test('button click updates message', async ({ page }) => {
+  const filePath = 'file://' + path.join(__dirname, '../index.html');
+  await page.goto(filePath);
 
-  await page.click('#clickMe'); 
-
-  await expect(page.locator('#message')).toHaveText('Button clicked!'); 
-
-}); 
+  await page.click('#clickMe');
+  await expect(page.locator('#message')).toHaveText('Button clicked!');
+});
