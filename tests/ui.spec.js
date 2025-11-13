@@ -1,10 +1,11 @@
-const { test, expect } = require('@playwright/test');
-const path = require('path');
+import { test, expect } from '@playwright/test'; 
 
-test('button click updates message', async ({ page }) => {
-  const filePath = 'file://' + path.join(__dirname, '../index.html');
-  await page.goto(filePath);
+test('button click updates message', async ({ page }) => { 
 
-  await page.click('#clickMe');
-  await expect(page.locator('#message')).toHaveText('Button clicked!');
-});
+  await page.goto('file://../index.html'); 
+
+  await page.click('#clickMe'); 
+
+  await expect(page.locator('#message')).toHaveText('Button clicked!'); 
+
+}); 
