@@ -18,7 +18,6 @@ export default [
     rules: {
       "no-unused-vars": "error", // unused vars are errors
       "eqeqeq": "error",         // require ===
-      "no-console": "warn"       // console.log is a warning
     }
   }
 ];
